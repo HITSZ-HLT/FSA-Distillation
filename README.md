@@ -29,15 +29,6 @@ Fine-grained sentiment analysis (FSA) aims to extract and summarize user opinion
     ├── data
     └── test
 
-Directory Description
-
-evaluation/: Contains evaluation scripts and utilities for model assessment
-fsa_datasets/: 
-pre-training/: Pre-training scripts and model outputs
-pretrained_models/: Directory for storing downloaded pre-trained models
-prompting/: Contains corpus data and test files
-parse_performance.ipynb: Jupyter notebook for results analysis
-
 ```
 
 
