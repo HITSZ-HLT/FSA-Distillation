@@ -1,4 +1,4 @@
 {
 	"base": "absolute_path/pretrained_models/t5-base/",
-    "v7.9": "absolute_path/pre-training/output_model/5m16d-seq2seq-2000k-mixtral-200k-steps,lr=300,ag=5,max_steps=200000,warmup_steps=0,weight_decay=0/model/final_model"
+    "v7.9": "absolute_path/pre-training/output_model/2000k-mixtral,lr=300,ag=5,max_steps=200000,warmup_steps=0,weight_decay=0/model/final_model"
 }

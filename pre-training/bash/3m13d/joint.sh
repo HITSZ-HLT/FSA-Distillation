@@ -39,7 +39,7 @@ fi
 
 if [ ! "${subname}" ]
 then
-  subname=4m2d-seq2seq-40k-analysis-bf16
+  subname=seq2seq-40k-analysis-bf16
 fi
 
 
@@ -70,7 +70,7 @@ eval_batch_size=80
 max_seq_length=128
 max_seq_length_output=400
 
-model_name_or_path="./pretrained_models/t5-base"
+model_name_or_path="../pretrained_models/t5-base"
 
 
 current_date=$(date +"%Y-%m-%d")

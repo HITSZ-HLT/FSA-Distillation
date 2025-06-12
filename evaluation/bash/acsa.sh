@@ -64,12 +64,12 @@ max_epochs=20
 
 
 # 测试hard
-data_dir="./fsa_datasets/w_hard_v2/"
-output_dir="./evaluation/output"
+data_dir="../fsa_datasets/w_hard/"
+output_dir="./output"
 
-echo "python acsa_5m23d.py fit: dataset ${dataset}, seed ${seed}"
+echo "python acsa.py fit: dataset ${dataset}, seed ${seed}"
 
-CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py fit \
+CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa.py fit \
   --seed_everything ${seed} \
   --trainer.devices=1 \
   --trainer.enable_checkpointing=False \
@@ -97,14 +97,14 @@ CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py fit \
   --model.output_dir "${output_dir}" \
   --model.subname ${subname}
 
-echo "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}"
+echo "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}"
 
-CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py test \
+CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa.py test \
   --seed_everything ${seed} \
   --trainer.devices=1 \
   --trainer.accelerator=gpu \
   --trainer.precision=${precision} \
-  --data.model_name_or_path "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}" \
+  --data.model_name_or_path "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}" \
   --data.max_seq_length ${max_seq_length} \
   --data.data_dir "${data_dir}" \
   --data.dataset ${dataset} \
@@ -114,16 +114,16 @@ CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py test \
   --model.test_type 'normal' \
   --model.dataset ${dataset} \
   --model.seed ${seed} \
-  --model.model_name_or_path "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}" \
+  --model.model_name_or_path "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}" \
   --model.output_dir "${output_dir}" \
   --model.subname ${subname}
 
-CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py test \
+CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa.py test \
   --seed_everything ${seed} \
   --trainer.devices=1 \
   --trainer.accelerator=gpu \
   --trainer.precision=${precision} \
-  --data.model_name_or_path "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}" \
+  --data.model_name_or_path "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}" \
   --data.max_seq_length ${max_seq_length} \
   --data.data_dir "${data_dir}" \
   --data.dataset ${dataset} \
@@ -133,16 +133,16 @@ CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py test \
   --model.test_type 'implicit' \
   --model.dataset ${dataset} \
   --model.seed ${seed} \
-  --model.model_name_or_path "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}" \
+  --model.model_name_or_path "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}" \
   --model.output_dir "${output_dir}" \
   --model.subname ${subname}
 
-CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py test \
+CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa.py test \
   --seed_everything ${seed} \
   --trainer.devices=1 \
   --trainer.accelerator=gpu \
   --trainer.precision=${precision} \
-  --data.model_name_or_path "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}" \
+  --data.model_name_or_path "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}" \
   --data.max_seq_length ${max_seq_length} \
   --data.data_dir "${data_dir}" \
   --data.dataset ${dataset} \
@@ -152,10 +152,10 @@ CUDA_VISIBLE_DEVICES=${CUDA_IDS} python acsa_5m23d.py test \
   --model.test_type 'mams' \
   --model.dataset ${dataset} \
   --model.seed ${seed} \
-  --model.model_name_or_path "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}" \
+  --model.model_name_or_path "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}" \
   --model.output_dir "${output_dir}" \
   --model.subname ${subname}
 
 
-echo "rm ${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}"
-rm -r "${output_dir}model/dataset=${dataset},b=${subname},seed=${seed}"
+echo "rm ${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}"
+rm -r "${output_dir}/model/dataset=${dataset},b=${subname},seed=${seed}"
