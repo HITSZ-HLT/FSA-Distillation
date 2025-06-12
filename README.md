@@ -1,3 +1,5 @@
+[🇨🇳 中文](README.zh-CN.md) | [🇺🇸 English](README.md)
+
 # Distilling Fine-grained Sentiment Understanding from Large Language Models
 
 This repository contains code and data for the [paper](https://arxiv.org/abs/2412.18552), a method for distilling fine-grained sentiment understanding from large language models (LLMs) into small language models (SLMs).
